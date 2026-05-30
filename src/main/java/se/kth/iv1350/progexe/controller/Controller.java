@@ -39,9 +39,12 @@ public class Controller {
     public OrderDTO createRepairOrder(String problemDescription, String phoneNumber){
         return repairManager.createRepairOrder(problemDescription, phoneNumber);
 }
-    /**
-    * Lägger till diagnos på en order.
-    */
+   /**
+   * Lägger till diagnos på en order.
+   * @param order Ordern som ska uppdateras.
+   * @param diagnosticResult Resultatet av diagnosen.
+   * @return Den uppdaterade ordern.
+   */
     public OrderDTO addDiagnosticResult(OrderDTO order, String diagnosticResult){
         return repairManager.addDiagnosticResult(order, diagnosticResult);
     }
@@ -62,6 +65,7 @@ public OrderDTO addRepairTask(OrderDTO order,String description, double cost) {
     /**
      * Markerar en reparationsorder som accepterad.
      * @param order Ordern som ska accepteras.
+     * @return Den uppdaterade ordern.
      */
     public OrderDTO acceptRepairOrder(OrderDTO order){
         return repairManager.acceptRepairOrder(order);

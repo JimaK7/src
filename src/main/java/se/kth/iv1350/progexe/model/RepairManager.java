@@ -57,6 +57,7 @@ public class RepairManager {
  *
  * @param order Den order som ska uppdateras.
  * @param diagnosticResult Resultatet av diagnosen.
+ * @return Den uppdaterade ordern.
  */
 public OrderDTO addDiagnosticResult(OrderDTO order, String diagnosticResult){
          
@@ -106,6 +107,7 @@ public OrderDTO addRepairTask(OrderDTO order, String description, double cost){
 /**
  * Markerar en reparationsorder som accepterad
  * @param order Ordern som ska accepteras
+ * @return Den uppdaterade ordern.
  */
 public OrderDTO acceptRepairOrder(OrderDTO order){
     OrderDTO updatedOrder = new OrderDTO(
