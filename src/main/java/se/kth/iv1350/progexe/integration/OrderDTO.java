@@ -58,7 +58,7 @@ public class OrderDTO {
             this.problemDescr = problemDescr;
             this.customer = customer;
             this.diagnosticResult = diagnosticResult;
-            this.repairTasks = repairTasks;
+            this.repairTasks = new ArrayList<RepairTaskDTO>(repairTasks);
             this.accepted = accepted;
 }
     
@@ -96,16 +96,8 @@ public class OrderDTO {
      * @return Lista över reparationsåtgärderna
      */
     public List<RepairTaskDTO> getRepairTasks(){
-        return repairTasks;
+        return new ArrayList<>(repairTasks);
     }
-
-    /**
-    * Sätter diagnosresultatet för ordern.
-    * @param diagnosticResult Resultatet av diagnosen.
-    */
-    public void setDiagnosticResult(String diagnosticResult){
-        this.diagnosticResult = diagnosticResult;
-}
   
     /**
     * @return true om ordern är accepterad, annars false.
@@ -114,12 +106,6 @@ public class OrderDTO {
     return accepted;
 }
 
-    /**
-    * Uppdaterar statusen för om kunden har accepterat reparationsordern
-    * @param accepted true om ordern är accepterad, annars false
-    */
-    public void setAccepted(boolean accepted){
-    this.accepted = accepted;
-}
+   
    
 }

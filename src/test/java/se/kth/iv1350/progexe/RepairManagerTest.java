@@ -47,4 +47,18 @@ public class RepairManagerTest {
         assertEquals(task.getDescription(), order.getRepairTasks().get(0).getDescription(), "Fel åtgärdsbeskrivning.");
         assertEquals(task.getCost(), order.getRepairTasks().get(0).getCost(), "Fel kostnad.");
     }
+
+/**
+ * Testar att diagnosresultat kan läggas till i en order.
+ */
+@Test
+public void testAddDiagnosticResult() {
+    OrderDTO order = registry.createRepairOrder("Däcken har punkterats", customer);
+
+    OrderDTO updatedOrder = repairManager.addDiagnosticResult(order, "Punktering på båda däcken");
+
+    assertEquals("Punktering på båda däcken", updatedOrder.getDiagnosticResult(), "Diagnosen lades inte till.");
+
+    assertNull(order.getDiagnosticResult(),"Den gamla DTO:n ska inte ändras.");
+}
 }

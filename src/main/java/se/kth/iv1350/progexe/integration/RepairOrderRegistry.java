@@ -32,15 +32,7 @@ public OrderDTO createRepairOrder(String problemDescription, CustomerDTO custome
     return order;
 }
 
-/**
- * Lägger till diagnos på en order.
- *
- * @param order Den order som ska uppdateras.
- * @param diagnosticResult Resultatet av diagnosen.
- */
-public void addDiagnosticResult(OrderDTO order, String diagnosticResult){
-    order.setDiagnosticResult(diagnosticResult);
-}
+
 /**
  * Sparar en uppdaterad order i registret.
  * Om ordern redan finns ersätts den gamla versionen,
